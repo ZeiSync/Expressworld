@@ -3,8 +3,8 @@ extends ../layout/common
 block content
   h1.py-2.text-center Profile
   .box.text-muted.text-center
-    if user.avatar
-      img(src=user.avatar alt="" style=('border-radius:50%; width:48px; height:48px'))
+    if user.avatarUrl
+      img(src=user.avatarUrl alt="" style=('border-radius:50%; width:48px; height:48px'))
     else
       img(src="/img/default-avatar.png" alt="" style=('border-radius:50%; width:48px; height:48px'))
     p= user.name
