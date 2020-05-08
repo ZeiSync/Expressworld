@@ -1,0 +1,22 @@
+extends ../layout/common
+
+block content
+  h1.py-2 User
+  a.position-absolute.btn.btn-outline-primary(href="/users/create") New
+  form.d-flex.justify-content-end(action="/users/search" method="GET")
+    input.form-control.w-25(type="text", name="q" value=q)
+    button.ml-1.btn.btn-outline-primary Search
+  table(class="table")
+      thead
+        tr
+          th(scope='col') Name
+          th(scope='col') Phone
+          th(scope='col') Action
+      tbody
+       each user in data.results
+         tr
+           td= user.name
+           td
+           td
+             a.btn.btn-outline-primary.mr-1(href="/users/"+ user.id +"/update") Update
+             a.btn.btn-outline-primary(href="/users/"+ user.id +"/delete") Delete

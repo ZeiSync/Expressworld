@@ -1,0 +1,23 @@
+extends ../layout/common
+
+block content
+  h1.py-2 Book
+  a.position-absolute.btn.btn-outline-primary(href="/books/create") New
+  form.d-flex.justify-content-end(action="/books/search" method="GET")
+    input.form-control.w-25(type="text", name="q" value=q)
+    button.ml-1.btn.btn-outline-primary Search
+  table(class="table")
+      thead
+        tr
+          th(scope='col') Books
+          th(scope='col') Description
+          th(scope='col') Action
+      tbody
+       each book in books
+         tr
+           td= book.title  
+           td
+           td
+             a.btn.btn-outline-primary.mr-1(href="/books/"+ book.id +"/update") Update
+             a.btn.btn-outline-primary(href="/books/"+ book.id +"/delete") Delete
+             

@@ -1,0 +1,14 @@
+extends ../layout/common
+
+block content
+  h1.my-2 New book
+
+  form(action="/books/create" method="POST" style=("display:flex; flex-direction: column;"))
+    .form-group
+      lable Title:
+      input.form-control(type="text", name="title" value=title)
+    .form-group
+      lable Description:
+      input.form-control(type="text", name="description" value=description)
+
+    button.btn.btn-outline-primary(style=("margin-top:1rem")) Create

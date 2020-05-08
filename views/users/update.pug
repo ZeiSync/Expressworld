@@ -1,0 +1,11 @@
+extends ../layout/common
+
+block content
+  h1 Update 
+
+  form(action="/users/update" method="POST")
+    input(type="hidden",name="id", value=user.id)
+    .form-group
+      lable Name:
+      input.form-control(type="text", name="name" value=user.name)
+    button.btn.btn-outline-primary Update
