@@ -14,6 +14,7 @@ const cookieParser = require("cookie-parser");
 const booksRouter = require("./routes/books.route");
 const usersRouter = require("./routes/users.route");
 const transactionsRouter = require("./routes/transactions.route");
+const profileRouter = require("./routes/profile.route");
 const authRouter = require("./routes/auth.route");
 const contactRouter = require("./routes/contact.route");
 const middleware = require("./middleware/auth.middleware");
@@ -36,6 +37,7 @@ app.get("/", (request, response) => {
 
 app.use("/books", middleware.requireAuth, booksRouter);
 app.use("/users", middleware.requireAuth, usersRouter);
+app.use("/profile", middleware.requireAuth, profileRouter);
 app.use("/transactions", middleware.requireAuth, transactionsRouter);
 app.use("/contact", middleware.requireAuth, contactRouter);
 
