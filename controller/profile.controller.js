@@ -59,7 +59,7 @@ module.exports.Postupdate = (req, res) => {
         console.log(image.url);
         db.get("users")
           .find({ id: req.signedCookies.userId })
-          .assign({ avatar: image.url })
+          .assign({ avatarUrl: image.url })
           .write();
         res.redirect("/profile");
       }
