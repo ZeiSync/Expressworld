@@ -38,7 +38,7 @@ module.exports.postCreate = (req, res) => {
 module.exports.delete = (req, res) => {
   let id = req.params.id;
   db.get("users").remove({ id: id }).write();
-  res.render("users/index", { users: db.get("users").value() });
+  res.redirect("/users");
 };
 
 module.exports.update = (req, res) => {
@@ -47,7 +47,6 @@ module.exports.update = (req, res) => {
 };
 
 module.exports.postUpdate = (req, res) => {
-  console.log(req.body);
   if (!req.body.name) {
     res.render("users/update", { id: req.body.id, name: req.body.name });
     return;

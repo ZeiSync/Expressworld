@@ -1,5 +1,8 @@
+/** @format */
+
 const express = require("express");
 const controller = require("../controller/books.controller");
+const middleware = require("../middleware/auth.middleware");
 
 const router = express.Router();
 
@@ -7,14 +10,14 @@ router.get("/", controller.index);
 
 router.get("/search", controller.search);
 
-router.get("/create", controller.create);
+router.get("/create", middleware.requireAuth, controller.create);
 
-router.post("/create", controller.postCreate);
+router.post("/create", middleware.requireAuth, controller.postCreate);
 
-router.get("/:id/delete", controller.delete);
+router.get("/:id/delete", middleware.requireAuth, controller.delete);
 
-router.get("/:id/update", controller.update);
+router.get("/:id/update", middleware.requireAuth, controller.update);
 
-router.post("/update", controller.postUpdate);
+router.post("/update", middleware.requireAuth, controller.postUpdate);
 
 module.exports = router;

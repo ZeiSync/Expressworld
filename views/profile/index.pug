@@ -1,6 +1,9 @@
 extends ../layout/common
 
 block content
+  if errors
+    each error in errors
+      .alert.alert-danger.w-25= error
   h1.py-2.text-center Profile
   .box.text-muted.text-center
     if user.avatarUrl

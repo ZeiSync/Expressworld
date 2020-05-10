@@ -58,7 +58,6 @@ module.exports.complete = (req, res) => {
     typeof db.get("transactions").find({ id: req.params.id }).value() ===
     "undefined"
   ) {
-    console.log("ayy");
     errors.push("Transaction not found");
   }
 

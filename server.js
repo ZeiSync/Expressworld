@@ -35,7 +35,7 @@ app.get("/", (request, response) => {
   response.render("index");
 });
 
-app.use("/books", middleware.requireAuth, booksRouter);
+app.use("/books", booksRouter);
 app.use("/users", middleware.requireAuth, usersRouter);
 app.use("/profile", middleware.requireAuth, profileRouter);
 app.use("/transactions", middleware.requireAuth, transactionsRouter);

@@ -27,9 +27,7 @@ module.exports.postLogin = async (req, res) => {
     });
     return;
   }
-  console.log(req.body.password);
   const match = await bcrypt.compare(req.body.password, user.password);
-  console.log(user.password, match);
 
   if (!match) {
     user.wrongLoginCount += 1;
